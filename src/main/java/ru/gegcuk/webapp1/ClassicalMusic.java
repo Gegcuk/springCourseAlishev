@@ -1,9 +1,10 @@
 package ru.gegcuk.webapp1;
 
+import org.springframework.stereotype.Component;
+
+@Component("classicalMusic")
 public class ClassicalMusic implements Music{
 
     @Override
-    public String getSong() {
-        return "Symphony #5";
-    }
+    public String getSong() { return "Symphony #5"; }
 }
