@@ -7,8 +7,28 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="musicBean"
+    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+
+    <bean id="rockMusicBean"
           class="ru.gegcuk.webapp1.RockMusic">
     </bean>
+    <bean id="classicalMusicBean"
+          class="ru.gegcuk.webapp1.ClassicalMusic">
+    </bean>
+    <bean id="jazzMusicBean"
+          class="ru.gegcuk.webapp1.JazzMusic">
+    </bean>
+
+    <bean id="musicPlayer"
+            class = "ru.gegcuk.webapp1.MusicPlayer">
+        <constructor-arg>
+            <list>
+                <ref bean="rockMusicBean"/>
+                <ref bean="jazzMusicBean"/>
+                <ref bean="classicalMusicBean"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
 
 </beans>
